@@ -23,6 +23,7 @@ import springsoaptorest.springusercards.security.UserPrincipal;
 import springsoaptorest.springusercards.security.config.JwtProperties;
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 
+
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter{
 	private AuthenticationManager authenticationManager;
 	

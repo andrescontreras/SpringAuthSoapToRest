@@ -8,6 +8,7 @@ import springsoaptorest.springusercards.dto.User;
 public class AuthenticateUserSoap {
 	
 	public User authenticateUser(String userName) {
-		return null;
+		
+		return new User("username123", "password123", "ADMIN", "ADMIN");
 	}
 }

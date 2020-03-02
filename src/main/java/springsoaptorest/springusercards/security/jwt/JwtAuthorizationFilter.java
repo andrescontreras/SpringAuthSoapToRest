@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 
 import springsoaptorest.springusercards.dto.User;
+import springsoaptorest.springusercards.security.UserPrincipal;
 import springsoaptorest.springusercards.security.config.JwtProperties;
 import springsoaptorest.springusercards.soap.AuthenticateUserSoap;
 
@@ -24,14 +25,12 @@ import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 	
-	@Autowired
-    private AuthenticateUserSoap authenticateUserSoap;
 	
-    private String userRepository; // cambiar por soap
+	private AuthenticateUserSoap authenticateUserSoap;
 
-    public JwtAuthorizationFilter(AuthenticationManager authenticationManager, String userRepository) {
+    public JwtAuthorizationFilter(AuthenticationManager authenticationManager, AuthenticateUserSoap authenticateUserSoap) {
         super(authenticationManager);
-        this.userRepository = userRepository;
+       this.authenticateUserSoap = authenticateUserSoap;
     }
 
     @Override
